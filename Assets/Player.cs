@@ -12,6 +12,15 @@ public class Player : MonoBehaviour
         moveInput = context.ReadValue<Vector2>();
     }
 
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            GetComponent<Rigidbody>().AddForce(Vector3.up * 300);
+        }
+    }
+
+
     void Update()
     {
         Vector3 move = new Vector3(moveInput.x, 0, moveInput.y);
